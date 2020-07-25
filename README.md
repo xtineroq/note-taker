@@ -54,4 +54,4 @@ Please direct all questions to:
 ## Deployed Application
 
 View this on Heroku:
-https://mysterious-wildwood-12652.herokuapp.com/notes
+https://mysterious-wildwood-12652.herokuapp.com/
