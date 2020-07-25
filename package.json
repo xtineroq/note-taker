@@ -1,0 +1,26 @@
+{
+  "name": "cr-hw11-note-taker",
+  "version": "1.0.0",
+  "description": "This application can be used to write, save, and delete notes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "none",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xtineroq/cr-hw11-note-taker.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Christine Roque",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xtineroq/cr-hw11-note-taker/issues"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "homepage": "https://github.com/xtineroq/cr-hw11-note-taker#readme"
+}
