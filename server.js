@@ -16,28 +16,47 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // API ROUTES
+
+// Retrieve saved Data
 app.get("/api/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "/db/db.json"));
 });
 
 let savedData = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 
-app.get("/api/notes/:id", function(req,res) {
-    res.json(savedData[req.params.id]);
-});
-
+// Add new note
 app.post("/api/notes", function(req, res) {
     let newNote = req.body;
+    let assignID = (savedData.length + 1);
+    newNote.id = assignID;
     savedData.push(newNote);
+
     fs.writeFileSync("db/db.json", JSON.stringify(savedData,'\t'));
     console.log("New note added: " + newNote.title);
     res.json(savedData);
 });
 
+// Delete existing note
 app.delete("/api/notes/:id", function(req, res) {
-    savedData.splice(req.params.id, 1);
+    savedData;
+    const currID = req.params.id;
+
+    // Delete selected note
+    const deleteNote = new Promise((resolve, reject) => {
+        resolve(savedData.splice(currID - 1, 1));
+        console.log("Note id " + currID + " has been deleted.");
+    });
+
+    // Reset note id
+    deleteNote.then(() => {
+        let noteID = 1;
+        for (eachNote of savedData) {
+            eachNote.id = noteID;
+            noteID++;
+        }
+    });
+
     fs.writeFileSync("db/db.json", JSON.stringify(savedData,'\t'));
-    console.log("Deleted note with id " + req.params.id);
     res.json(savedData);
 });
 
