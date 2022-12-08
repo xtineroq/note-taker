@@ -20,7 +20,7 @@
     "url": "https://github.com/xtineroq/cr-hw11-note-taker/issues"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.18.2"
   },
   "homepage": "https://github.com/xtineroq/cr-hw11-note-taker#readme"
 }
